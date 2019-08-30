@@ -1,0 +1,74 @@
+
+
+body{
+	background: url("https://i.pinimg.com/originals/79/ea/e6/79eae60f1e4b247c88219f8caae89a42.jpg"); 
+	background-size: cover;
+
+}
+
+h1{
+	font-family: 'Times New Roman', Times, serif;
+    font-size: 90px;
+    color: antiquewhite;
+	margin-top: 3vh;
+	margin-bottom: 1vh;
+}
+
+.row{
+	margin-bottom: 4vh;
+	margin-left: 3vw;
+	margin-right: 3vw;
+}
+
+.btn{
+	font-family: "minnieregular";
+	font-size: 16px;
+	background-color: #1c5677;
+	color: white;
+	padding: 1vh 1vw;
+}
+
+.btn:hover{
+	color: #efad07;
+}
+
+.btn:focus{
+	outline: 2px solid #efad07 !important;
+	background-color: #1680bc;
+	color: #efad07;
+}
+
+.team-button{
+	margin: .5vh 1vw;
+}
+
+.dotted-border{
+	border: 6px dotted #efad07;
+}
+
+.gif-image{
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+}
+
+.individual-gif-container{
+	float: left;
+	margin: 2vh 3vw 2vh 3vw;
+}
+
+#submit{
+	margin-top: 1.5vh;
+}
+
+#team{
+	margin-top: 1.5vh;
+	width: 100%;
+}
+
+#team:focus{
+	outline: 2px solid #efad07 !important;
+}
+
+#gif-container{
+	font-size: 22px;
+}
