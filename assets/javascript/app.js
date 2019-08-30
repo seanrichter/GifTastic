@@ -1,14 +1,4 @@
 
-// Example queryURL for Giphy API
-var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=SDGwxtRf1A6xMC2lDSGFdc5Z6npokhMP";
-
-queryURL.done(function(response) { console.log("success", response); });
-
-var gifs = response.data
-
-for (i in gifs){
-    $('.inner').append('<img>')
-}
 
 // event listener for all button elements
 $("button").on("click", function() {
@@ -17,7 +7,7 @@ $("button").on("click", function() {
 
     // URL to search Giphy for the animal button that was clicked.
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-    animal + "api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9";
+    animal + "api_key=SDGwxtRf1A6xMC2lDSGFdc5Z6npokhMP";
 
     // AJax GET request
     $.ajax({
