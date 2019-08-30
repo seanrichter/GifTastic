@@ -21,15 +21,15 @@ h1{
 }
 
 .btn{
-	font-family: "minnieregular";
+	font-family: 'Times New Roman', Times, serif;
 	font-size: 16px;
 	background-color: #1c5677;
 	color: white;
-	padding: 1vh 1vw;
+	padding: 10px;
 }
 
 .btn:hover{
-	color: #efad07;
+	color: red;
 }
 
 .btn:focus{
@@ -39,16 +39,12 @@ h1{
 }
 
 .team-button{
-	margin: .5vh 1vw;
-}
-
-.dotted-border{
-	border: 6px dotted #efad07;
+	margin: 20px;
 }
 
 .gif-image{
-	margin-top: 1vh;
-	margin-bottom: 1vh;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .individual-gif-container{
