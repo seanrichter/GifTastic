@@ -8,35 +8,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel= "stylesheet" type="text/css" href="assets/css/style.css">
     <link rel= "stylesheet" type="text/css" href="assets/css/reset.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
 </head>
+
 <body>
-    <div class="container">
-        <h1>Giphy Search</h1>
-
+    <div class="row">
+        <h1>Football Team Gifs</h1>
         <div id="buttons-view"></div>
-
-        <form id="animal-form">
-            <label for="animal-input">Add Animal Gifs</label>
-            <input type="text" id="animal-input"><br>
-
-            <input id="add-animal" type="submit" value="Add Animal Gifs">
-        </form>
-
     </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    
-    // URL to search Giphy for the animal button that was clicked.
-    var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=SDGwxtRf1A6xMC2lDSGFdc5Z6npokhMP";
-    
-    // AJax GET request
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(response){
-        console.log(response);
-    });
-  </script>
+    <div class = "row">
+        <div id = "gif-container" class = "col-xs-8"></div>
+
+        <div class ="col-xs-1"></div>
+
+        <div class = "col-xs-3">
+            <form class="">
+                <input type = "text">
+                <input type = "submit">
+            </form>    
+        </div>
+    </div>    
 </body>
 </html>
