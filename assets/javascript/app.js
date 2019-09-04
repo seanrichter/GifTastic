@@ -72,6 +72,3 @@ $(document).ready(function(){
 		$("#team").val("");
 	});
 });
-
-
-
