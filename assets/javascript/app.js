@@ -3,7 +3,6 @@ var topics = ["Cowboys","Patriots","Eagles","Raiders","Packers","Steelers","Bear
 "Panthers","Chargers","Falcons","Buccaneers","Titans","Bengals","Jaguars"];
 var numberOfGIFs = 10;
 var rating = "PG";
-
 function renderButtons(){
     for(var i = 0; i < topics.length; i++) {
         var newButton = $("<button>");
@@ -15,6 +14,7 @@ function renderButtons(){
     $(".team-button").unbind("click");
 
     $(".team-button").on("click", function(){
+
         $(".gif-image").unbind("click");
         $("#gif-container").empty();
         $("#gif-container").removeClass("border");
@@ -33,7 +33,7 @@ function addButton(team){
 function populateGIfContainer(team){
     $.ajax({
 		url: "https://api.giphy.com/v1/gifs/search" + team + 
-		"&api_key=x4RAXJ2cuswENQg7324QwDTP48qj4SqA&limit" + rating + "&limit=" + numberOfGIFs,
+		"&api_key=x4RAXJ2cuswENQg7324QwDTP48qj4SqA" + rating + "&limit=" + numberOfGIFs,
 		method: "GET"
     }).then(function(response){
 		response.data.forEach(function(element){
