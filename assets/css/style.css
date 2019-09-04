@@ -3,39 +3,38 @@
 body{
 	background: url("https://i.pinimg.com/originals/79/ea/e6/79eae60f1e4b247c88219f8caae89a42.jpg"); 
 	background-size: cover;
-
 }
 
 h1{
 	font-family: 'Times New Roman', Times, serif;
     font-size: 90px;
     color: antiquewhite;
-	margin-top: 3vh;
-	margin-bottom: 1vh;
+	margin-top: 80px;
+	margin-bottom: 10px;
 }
 
 .row{
-	margin-bottom: 4vh;
-	margin-left: 3vw;
-	margin-right: 3vw;
+	margin-bottom: 40px;
+	margin-left: 30px;
+	margin-right: 30px;
 }
 
 .btn{
 	font-family: 'Times New Roman', Times, serif;
 	font-size: 16px;
-	background-color: #1c5677;
+	background-color: green;
 	color: white;
 	padding: 10px;
 }
 
 .btn:hover{
-	color: red;
+	color: black;
 }
 
 .btn:focus{
-	outline: 2px solid #efad07 !important;
+	outline: 2px solid orange !important;
 	background-color: #1680bc;
-	color: #efad07;
+	color: orange;
 }
 
 .team-button{
@@ -53,16 +52,16 @@ h1{
 }
 
 #submit{
-	margin-top: 1.5vh;
+	margin-top: 5px;
 }
 
 #team{
-	margin-top: 1.5vh;
+	margin-top: 15px;
 	width: 100%;
 }
 
 #team:focus{
-	outline: 2px solid #efad07 !important;
+	outline: 2px solid orange !important;
 }
 
 #gif-container{
