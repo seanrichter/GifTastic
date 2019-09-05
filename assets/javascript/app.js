@@ -32,7 +32,7 @@ function addButton(team){
 
 function populateGIFContainer(team){
     $.ajax({
-		url: "https://api.giphy.com/v1/gifs/search" + team + 
+		url: "https://api.giphy.com/v1/gifs/trending" + team + 
 		"&api_key=x4RAXJ2cuswENQg7324QwDTP48qj4SqA" + rating + "&limit=" + numberOfGIFs,
 		method: "GET"
     }).then(function(response){
@@ -68,7 +68,7 @@ $(document).ready(function(){
 	renderButtons();
 	$("#submit").on("click", function(){
 		event.preventDefault();
-		addButton($("#team").val().trim());
+		addButton($("#team").val());
 		$("#team").val("");
 	});
 });
