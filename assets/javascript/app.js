@@ -30,7 +30,7 @@ function addButton(team){
 	}
 }
 
-function populateGIfContainer(team){
+function populateGIFContainer(team){
     $.ajax({
 		url: "https://api.giphy.com/v1/gifs/search" + team + 
 		"&api_key=x4RAXJ2cuswENQg7324QwDTP48qj4SqA" + rating + "&limit=" + numberOfGIFs,
