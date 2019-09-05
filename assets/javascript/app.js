@@ -39,7 +39,7 @@ function populateGIFContainer(team){
 		response.data.forEach(function(element){
 			newDiv = $("<div>");
 			newDiv.addClass("individual-gif-container");
-			newDiv.append("<p>Rating: " + element.rating.toUpperCase() + "</p>");
+			newDiv.append("<p>rating: " + element.rating.toUpperCase() + "</p>");
 			var newImage = $("<img src = '" + element.images.fixed_height_still.url + "'>");
 			newImage.addClass("gif-image");
 			newImage.attr("state", "still");
