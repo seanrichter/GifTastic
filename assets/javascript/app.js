@@ -32,8 +32,7 @@ function addButton(team){
 
 function populateGIFContainer(team){
     $.ajax({
-		url: "https://api.giphy.com/v1/gifs/trending" + team + 
-		"&api_key=x4RAXJ2cuswENQg7324QwDTP48qj4SqA" + rating + "&limit=" + numberOfGIFs,
+		url: "https://api.giphy.com/v1/gifs/search?api_key=gO69tn1Qwb1dMmTpAwcc4Pb7GNWN1n5j&q=football&limit=10&offset=0&rating=PG&lang=en" + team + rating + numberOfGIFs,
 		method: "GET"
     }).then(function(response){
 		response.data.forEach(function(element){
