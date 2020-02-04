@@ -50,7 +50,7 @@ $(document).ready(function() {
           "Rating: " + results[j].rating.toUpperCase()
         );
         // GIF Title
-        var pTitle = $("<p>").text("Title: " + results[j].title.toUpperCase());
+        var pTitle = $("<p>").text("Team: " + results[j].title.toUpperCase());
         // GIF URL
         var gifURL = results[j].images.fixed_height_still.url;
         var gif = $("<img>");
