@@ -1,6 +1,8 @@
 body {
   background-image: url("../images/background.jpg");
+  background-attachment: fixed;
   background-size: cover;
+  background-repeat: no-repeat;
   font-family: "Righteous", cursive;
   color: white;
 }
