@@ -1,12 +1,12 @@
 body {
   background-image: url("../images/background.jpg");
-  font-family:'Righteous', cursive;
+  font-family: "Righteous", cursive;
   color: white;
 }
 
 .topic {
   margin: 10px;
- }
+}
 
 .buttons-view {
   border-radius: 25px;
@@ -17,7 +17,7 @@ body {
 h2 {
   letter-spacing: 5px;
   text-align: center;
-  color:whitesmoke;
+  color: whitesmoke;
 }
 
 h6 {
@@ -30,13 +30,13 @@ h6 {
   font-weight: lighter;
 }
 
-.team-name{
+.team-name {
   margin: 20px;
   float: left;
 }
 
 p {
-  color:papayawhip;
+  color: papayawhip;
   margin-top: 20px;
   line-height: 16px;
 }
