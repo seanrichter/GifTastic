@@ -1,36 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Football Gifs</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GIFtastic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- BootStrap Link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- My CSS file -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <!-- Link to Google Fonts (Typography) -->
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="favicon.ico" href="assets/images/icon3.png" />
 </head>
 
 <body>
-    <div class="row">
-        <h1>Football Teams</h1>
-        <div id="button-container" class="border"></div>
-    </div>
-    <div class="row">
-        <div id="gif-container" class="col-xs-8"></div>
-        <div class="col-xs-1"></div>
-        <div class="col-xs-3">
-            <form class="team-button">
-                Add buttons for your favorite teams:<br>
-                <input type="text" name="team-button" id="team-button">
-                <input type="submit" value="Submit" class="btn" id="submit">
-            </form>
+
+    <div class="container">
+        <h2>Football GIFtastic!</h2>
+        <h6>*Click on a Football team Button to see some interesting GIFs. *Add your own Football team Button. *Double-Click a
+            Button to delete a Football team Button</h6>
+
+        <!-- Div for Buttons  -->
+        <div class="row">
+            <div class="buttons-view"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-9 container-fluid">
+                <!-- Info from API call will be added here -->
+                <div id="team-view"></div>
+            </div>
+            <!-- Div for the form and submit button-->
+            <div class="col-lg-3">
+                <form id="team-form">
+                    <label for="team-input">Add a Super team!</label>
+                    <input type="text" class="form-control col-12" id="team-input"><br>
+                    <input class="btn btn-warning" id="add-team" type="submit" value="Submit">
+                </form>
+            </div>
         </div>
     </div>
+
+    <!-- JQuery & Javascript file Links -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>

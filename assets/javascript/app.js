@@ -1,107 +1,123 @@
-var topics = [
-  "Cowboys",
-  "Patriots",
-  "Eagles",
-  "Raiders",
-  "Packers",
-  "Steelers",
-  "Bears",
-  "49ers",
-  "Giants",
-  "Browns",
-  "Vikings",
-  "Chiefs",
-  "Colts",
-  "Broncos",
-  "Texans",
-  "Bills",
-  "Saints",
-  "Redskins",
-  "Dolphins",
-  "Jets",
-  "Cardinals",
-  "Lions",
-  "Ravens",
-  "Rams",
-  "Panthers",
-  "Chargers",
-  "Falcons",
-  "Buccaneers",
-  "Titans",
-  "Bengals",
-  "Jaguars"
-];
-var numberOfGIFs = 10;
-var rating = "PG";
-function renderButtons() {
-  for (var i = 0; i < topics.length; i++) {
-    var newButton = $("<button>");
-    newButton.addClass("btn");
-    newButton.addClass("team-button");
-    newButton.text(topics[i]);
-    $("#button-container").append(newButton);
-  }
-  $(".team-button").unbind("click");
+$(document).ready(function() {
+    // Declaring Initial Array of Topics which is a list of Super Heroes
+    var topics = ['San Francisco 49ers', 'Kansas City Chiefs', 'New England Patriots', 'Dallas Cowboys', 'Green Bay Packers', 'Philadelphia Eagles', 'Seattle Seahawks', 'Pittsburgh Steelers', 'Las Vegas Raiders'];
 
-  $(".team-button").on("click", function() {
-    $(".gif-image").unbind("click");
-    $("#gif-container").empty();
-    $("#gif-container").removeClass("border");
-    populateGIFContainer($(this).text());
-  });
-}
+    /// ALL FUNCTIONS
 
-function addButton(team) {
-  if (topics.indexOf(team) === -1) {
-    topics.push(team);
-    $("#button-container").empty();
-    renderButtons();
-  }
-}
+    //Function to display info on the topics by calling an API and retrieving the info 
+    function displayInfo(){
+      $('#team-view').empty();
+      var topic = $(this).attr('data-name');
+      var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + topic + '&api_key=gO69tn1Qwb1dMmTpAwcc4Pb7GNWN1n5j&limit=10';
 
-function populateGIFContainer(team) {
-  $.ajax({
-    url:
-      "https://api.giphy.com/v1/gifs/search?api_key=gO69tn1Qwb1dMmTpAwcc4Pb7GNWN1n5j&q=football&limit=10&offset=0&rating=PG&lang=en" +
-      team +
-      rating +
-      numberOfGIFs,
-    method: "GET"
-  }).then(function(response) {
-    response.data.forEach(function(element) {
-      newDiv = $("<div>");
-      newDiv.addClass("individual-gif-container");
-      newDiv.append("<p>rating: " + element.rating.toUpperCase() + "</p>");
-      var newImage = $(
-        "<img src = '" + element.images.fixed_height_still.url + "'>"
-      );
-      newImage.addClass("gif-image");
-      newImage.attr("state", "still");
-      newImage.attr("still-data", element.images.fixed_height_still.url);
-      newImage.attr("animated-data", element.images.fixed_height.url);
-      newDiv.append(newImage);
-      $("#gif-container").append(newDiv);
-    });
+      // AJAX call to GET information 
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+      .then(function(response) {
+        // If no information on topics is found, the alert the user
+        if (response.pagination.total_count == 0) {
+          alert('Sorry, there are no Gifs for this topic');
+          var itemindex = topics.indexOf(topic);
+          // otherwise display button
+          if (itemindex > -1) {
+            topics.splice(itemindex, 1);
+            renderButtons();
+            }
+        }
+        
+        // Save response from API call (JSON) to a variable results
+        var results = response.data;
+        for (var j = 0; j < results.length; j++){
+          // Create new Div
+          var newTopicDiv = $("<div class='team-name'>");
+          // Save responses from API into variables and add to DOM
+          // GIF Rating
+          var pRating = $('<p>').text('Rating: ' + results[j].rating.toUpperCase());
+          // GIF Title
+          var pTitle = $('<p>').text('Title: ' + results[j].title.toUpperCase());
+          // GIF URL
+          var gifURL = results[j].images.fixed_height_still.url;         
+          var gif = $('<img>');
+          gif.attr('src', gifURL);
+          gif.attr('data-still', results[j].images.fixed_height_still.url);
+          gif.attr('data-animate', results[j].images.fixed_height.url);
+          gif.attr('data-state', 'still');
+          gif.addClass ('animate-gif');
+          // Appending info 
+          newTopicDiv.append(pRating);
+          newTopicDiv.append(pTitle);
+          newTopicDiv.append(gif);
+           // Putting the saved info to new div
+          $('#team-view').prepend(newTopicDiv);
+        } 
+      });
+    };
+    
+    // Function for displaying buttons
+    function renderButtons() {
+      // Deletes the movies prior to adding new movies
+      $('.buttons-view').empty();
+      // Loops through the array of topics to create buttons for all topics
+      for (var i = 0; i < topics.length; i++) {
+        var createButtons = $('<button>');
+        createButtons.addClass('topic btn btn-info');
+        createButtons.attr('data-name', topics[i]);
+        createButtons.text(topics[i]);
+        $('.buttons-view').append(createButtons);
+      }
+    }
 
-    $("#gif-container").addClass("border");
-    $(".gif-image").unbind("click");
-    $(".gif-image").on("click", function() {
-      if ($(this).attr("state") === "still") {
-        $(this).attr("state", "animated");
-        $(this).attr("src", $(this).attr("animated-data"));
-      } else {
-        $(this).attr("state", "still");
-        $(this).attr("src", $(this).attr("still-data"));
+    // Function to remove buttons
+    function removeButton(){
+      $("#team-view").empty();
+      var topic = $(this).attr('data-name');
+      var itemindex = topics.indexOf(topic);
+      if (itemindex > -1) {
+        topics.splice(itemindex, 1);
+        renderButtons();
+      }
+    }
+
+    // Function to play or still Gif images
+    function playGif () {
+      var state = $(this).attr('data-state');
+      if (state === 'still') {
+        $(this).attr('src', $(this).attr('data-animate'));
+        $(this).attr('data-state', 'animate');
+      }
+      else {
+        $(this).attr('src' , $(this).attr('data-still'));
+        $(this).attr('data-state', 'still');
+      }
+    }
+
+    ///EVENT LISTENERS aka CLICK EVENTS
+    // Click on the submit button to add a new team button
+    $("#add-team").on("click", function(event) {
+      event.preventDefault();
+      // capture input from the form
+      var team = $("#team-input").val().trim();
+      // check if topic exsits already
+      if (topics.toString().toLowerCase().indexOf(team.toLowerCase()) != -1) {
+        alert("Topic already exists");
+      }
+      else {
+        topics.push(team);
+        renderButtons();
       }
     });
-  });
-}
 
-$(document).ready(function() {
-  renderButtons();
-  $("#submit").on("click", function() {
-    event.preventDefault();
-    addButton($("#team").val());
-    $("#team").val("");
-  });
-});
+    // Click on team button to display Gifs and other info from API
+    $(document).on("click", ".topic", displayInfo);
+    // Click on the Gif image to animate or make it still
+    $(document).on("click", ".animate-gif", playGif);
+    // Double-click on any team button to remove it from the array. Tried this for the first time.
+    $(document).on("dblclick", ".topic", removeButton);
+
+    // Calling the renderButtons function to display the intial buttons
+    renderButtons();
+
+
+}); //PAGE CLOSING BRACKET
